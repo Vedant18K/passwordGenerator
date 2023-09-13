@@ -7,11 +7,16 @@
     <title>PasswordGenerator</title>
 </head>
 <script>
+    let password;
     function passwordGenerator() {
         const inputText = document.getElementById("input").value;
         let randomNumber = Math.floor(Math.random() * 1000);
-        const password = inputText + randomNumber;
-        document.getElementById("demo").innerHTML = password;   
+         password = inputText + randomNumber;
+        document.getElementById("demo").innerHTML = password; 
+        
+    }
+    function copytext(){
+        navigator.clipboard.writeText(password)
     }
     
 </script>
@@ -23,9 +28,11 @@
         <h3><label>Enter char to Generator password</label></h3>
         <input style="margin-top: 10px; width: 200px;" type="text" id="input"></input><br>
         <button  style="margin-top: 10px;" onclick="passwordGenerator()" >Click here</button>
-        <div >
-        <p style="margin-top: 10px;" id="demo" style="display: flex; width: fit-content;"></p>
+        <div style="display: flex; justify-content: center; gap: 10px;">
+        <p  id="demo" ></p>
+        <p  onclick="copytext()" style="cursor: pointer;">Copy</p>
         </div>  
+        
 
     </div>
 </body>
